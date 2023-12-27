@@ -1,0 +1,14 @@
+com\gasen\usercenter\exception\GlobalExceptionHandler.class
+com\gasen\usercenter\common\BaseResponse.class
+com\gasen\usercenter\common\ErrorCode.class
+com\gasen\usercenter\Model\domain\request\UserRegisterRequest.class
+com\gasen\usercenter\mapper\UserMapper.class
+com\gasen\usercenter\constant\UserConstant.class
+com\gasen\usercenter\exception\BusinessException.class
+com\gasen\usercenter\UserCenterApplication.class
+com\gasen\usercenter\Model\domain\request\UserLoginRequest.class
+com\gasen\usercenter\service\impl\UserServiceImpl.class
+com\gasen\usercenter\service\UserService.class
+com\gasen\usercenter\Model\domain\User.class
+com\gasen\usercenter\common\ResultUtils.class
+com\gasen\usercenter\controller\UserController.class

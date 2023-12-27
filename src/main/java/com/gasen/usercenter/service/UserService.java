@@ -29,7 +29,7 @@ public interface UserService extends IService<User> {
     User userLogin(String userAccount, String userPassword, HttpServletRequest request);
 
     /**
-     * 用户脱敏
+     * 用 户 脱 敏
      * @param originUser
      * @return
      */
