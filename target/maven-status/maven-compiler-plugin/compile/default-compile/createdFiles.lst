@@ -1,3 +1,4 @@
+com\gasen\usercenter\config\WebMvcConfg.class
 com\gasen\usercenter\exception\GlobalExceptionHandler.class
 com\gasen\usercenter\common\BaseResponse.class
 com\gasen\usercenter\common\ErrorCode.class

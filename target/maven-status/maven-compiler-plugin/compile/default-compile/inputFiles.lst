@@ -8,6 +8,7 @@ D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\exception\Busines
 D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\mapper\UserMapper.java
 D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\controller\UserController.java
 D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\Model\domain\request\UserRegisterRequest.java
+D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\config\WebMvcConfg.java
 D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\common\BaseResponse.java
 D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\Model\domain\User.java
 D:\IDEA_Project\user-center\src\main\java\com\gasen\usercenter\common\ErrorCode.java
