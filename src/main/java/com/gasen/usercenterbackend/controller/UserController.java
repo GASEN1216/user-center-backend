@@ -131,7 +131,7 @@ public class UserController {
     /**
      * 用户登录暨签到
      * */
-    @PostMapping("login")
+    @PostMapping("/login")
     public BaseResponse<?> login(@RequestBody UserRegisterLoginRequest user, HttpServletRequest request) {
         if(user==null) return ResultUtils.error(ErrorCode.PARAMETER_ERROR,"用户为空");
         String userAccount = user.getUserAccount();
@@ -150,7 +150,7 @@ public class UserController {
     /**
      * 用户登出
      * */
-    @PostMapping("logout")
+    @PostMapping("/logout")
     public BaseResponse<Boolean> logout(HttpServletRequest request) {
         boolean logout = userService.userLogout(request);
         return ResultUtils.success(logout);
@@ -159,7 +159,7 @@ public class UserController {
     /**
      * 用户封禁
      * */
-    @PostMapping("banned")
+    @PostMapping("/banned")
     public BaseResponse banned(@RequestBody UserBannedDaysRequest userBannedDaysRequest, HttpServletRequest request) {
         if(!isAdmin(request)) return ResultUtils.error(ErrorCode.USER_NOT_LOGIN_OR_NOT_ADMIN);
         if(userBannedDaysRequest ==null) return ResultUtils.error(ErrorCode.PARAMETER_ERROR,"参数为空");
