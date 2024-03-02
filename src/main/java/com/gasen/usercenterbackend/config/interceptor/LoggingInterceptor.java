@@ -3,6 +3,7 @@ package com.gasen.usercenterbackend.config.interceptor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -46,33 +47,10 @@ public class LoggingInterceptor implements HandlerInterceptor {
                     .append("\nClass: ").append(className)
                     .append("\nMethod: ").append(methodName);
 
-            // 请求头
-            Enumeration<String> headerNames = request.getHeaderNames();
-            while (headerNames.hasMoreElements()) {
-                String headerName = headerNames.nextElement();
-                logMessage.append("\nHeader: ").append(headerName).append("=").append(request.getHeader(headerName));
-            }
-
-            // POST请求体参数处理
-            if ("POST".equals(request.getMethod())) {
-                MediaType contentType = MediaType.parseMediaType(request.getContentType());
-                if (contentType.includes(MediaType.APPLICATION_JSON)) {
-                    try (BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream(), StandardCharsets.UTF_8))) {
-                        String requestBody = IOUtils.toString(reader);
-                        if (!StringUtils.isEmpty(requestBody)) {
-                            Map<String, Object> params = objectMapper.readValue(requestBody, Map.class);
-                            params.forEach((key, value) -> logMessage.append("\nPost Param: ").append(key).append("=").append(value));
-                        }
-                    } catch (IOException e) {
-                        LOGGER.error("Failed to parse JSON request body", e);
-                    }
-                } else { // 对于非JSON类型请求体，需要其他方式解析
-                    // 请求参数
-                    Map<String, String[]> parameterMap = request.getParameterMap();
-                    for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
-                        logMessage.append("\nParam: ").append(entry.getKey()).append("=").append(StringUtils.join(entry.getValue(), ", "));
-                    }
-                }
+            // 请求参数
+            Map<String, String[]> parameterMap = request.getParameterMap();
+            for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
+                logMessage.append("\nParam: ").append(entry.getKey()).append("=").append(StringUtils.join(entry.getValue(), ", "));
             }
 
             // 客户端IP地址
@@ -80,7 +58,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
             if (StringUtils.isBlank(clientIp)) {
                 clientIp = request.getRemoteAddr();
             }
-            logMessage.append("\nClient IP: ").append(clientIp);
+            logMessage.append("\nClient IP: ").append(clientIp).append("\n");
 
             LOGGER.info(logMessage.toString());
         }
