@@ -19,11 +19,9 @@
 - java编程语言
 - Spring + SpringMVC + SpringBoot 框架
 - MyBatis + MyBatis-Plus 框架
-- MySQL数据库 
-
-(没用jUnit，因为还不太会用，都是用的postman测试的)
+- MySQL数据库
 
 **注意**：clone时请将application.example.yml改为application.yml，并把数据库url，账号密码写好
 
-TODO:生产环境配置
+
 
