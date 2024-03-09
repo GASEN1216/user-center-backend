@@ -39,16 +39,20 @@ public class UserController {
     @Resource
     private UserMapper userMapper;
 
+    //TODO：ZSet做排行榜
+
     /**
      * 更新用户
      * User传进来要有id
      * */
     @PostMapping("/update")
     public BaseResponse updateUser(@RequestBody User user, HttpServletRequest request) {
+        //TODO：判断是否是用户自己，是的话也可以进入修改
         //1.是否为管理员
         if(isAdmin(request)) {
             //2.判断用户是否存在
             if(userService.lambdaQuery().eq(User::getId, user.getId()).exists()) {
+                //TODO：判断是否有更新信息，未更新直接返回
                 //3.更新用户信息
                 log.info("id为"+user.getId()+"的用户更新信息");
                 if(userService.updateById(user))
