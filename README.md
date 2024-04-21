@@ -20,8 +20,3 @@
 - Spring + SpringMVC + SpringBoot 框架
 - MyBatis + MyBatis-Plus 框架
 - MySQL数据库
-
-**注意**：clone时请将application.example.yml改为application.yml，并把数据库url，账号密码写好
-
-
-
